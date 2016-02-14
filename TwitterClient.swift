@@ -51,6 +51,7 @@ class TwitterClient: BDBOAuth1SessionManager {
                 //print("user: \(response)")
                 
                 let user = User(dictionary: response as! NSDictionary)
+                User.currentUser = user
                 print("user: \(user.name)")
                 self.loginCompletion?(user: user, error: nil)
                 

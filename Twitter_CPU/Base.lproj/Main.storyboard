@@ -35,7 +35,7 @@
         <!--View Controller-->
         <scene sceneID="ivO-v5-EaN">
             <objects>
-                <viewController id="y4b-FJ-vie" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetsViewController" id="y4b-FJ-vie" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nw7-JH-NHt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
