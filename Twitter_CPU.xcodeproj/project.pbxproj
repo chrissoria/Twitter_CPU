@@ -16,6 +16,7 @@
 		5433F46A1C6EDF1A0047F117 /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433F4691C6EDF1A0047F117 /* TwitterClient.swift */; };
 		5433F46D1C7033100047F117 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433F46C1C7033100047F117 /* User.swift */; };
 		5433F46F1C70332F0047F117 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433F46E1C70332F0047F117 /* Tweet.swift */; };
+		5433F4711C7071B40047F117 /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433F4701C7071B40047F117 /* TweetsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		5433F4691C6EDF1A0047F117 /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
 		5433F46C1C7033100047F117 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5433F46E1C70332F0047F117 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		5433F4701C7071B40047F117 /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		E91C3CB26A44E8A29E807043 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +73,7 @@
 				5433F46B1C7032B70047F117 /* models */,
 				5433F4321C6AF36D0047F117 /* AppDelegate.swift */,
 				5433F4341C6AF36D0047F117 /* ViewController.swift */,
+				5433F4701C7071B40047F117 /* TweetsViewController.swift */,
 				5433F4361C6AF36D0047F117 /* Main.storyboard */,
 				5433F4391C6AF36D0047F117 /* Assets.xcassets */,
 				5433F43B1C6AF36D0047F117 /* LaunchScreen.storyboard */,
@@ -240,6 +243,7 @@
 			files = (
 				5433F46D1C7033100047F117 /* User.swift in Sources */,
 				5433F46F1C70332F0047F117 /* Tweet.swift in Sources */,
+				5433F4711C7071B40047F117 /* TweetsViewController.swift in Sources */,
 				5433F46A1C6EDF1A0047F117 /* TwitterClient.swift in Sources */,
 				5433F4351C6AF36D0047F117 /* ViewController.swift in Sources */,
 				5433F4331C6AF36D0047F117 /* AppDelegate.swift in Sources */,
