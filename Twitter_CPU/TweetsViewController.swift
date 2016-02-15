@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BDBOAuth1Manager
 
 class TweetsViewController: UIViewController {
 
@@ -22,7 +23,7 @@ class TweetsViewController: UIViewController {
     }
     
     @IBAction func onLogout(sender: AnyObject) {
-        User.currentUser?.logout()
+        User.currentUser!.logout()
     }
 
     /*

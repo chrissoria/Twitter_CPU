@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "UserDidLogoutNotification", name: UserDidLogoutNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "UserDidLogout", name: UserDidLogoutNotification, object: nil)
         
         if User.currentUser != nil {
             //go to logged in screen
