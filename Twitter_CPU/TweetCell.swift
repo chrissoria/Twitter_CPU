@@ -16,6 +16,12 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var tweetContent: UILabel!
     @IBOutlet weak var whenCreated: UILabel!
     
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var retweetCountLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var favoriteCountLabel: UILabel!
+    
+    
     var tweet: Tweet! {
         didSet {
             userName.text = "\((tweet.user?.name)!)"
@@ -63,7 +69,16 @@ class TweetCell: UITableViewCell {
         // Initialization code
         profileImage.layer.cornerRadius = 3
         profileImage.clipsToBounds = true
+        
+        tweetContent.preferredMaxLayoutWidth = tweetContent.frame.size.width
     }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        tweetContent.preferredMaxLayoutWidth = tweetContent.frame.size.width
+    }
+    
+
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -71,4 +86,15 @@ class TweetCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func onRetweet(sender: AnyObject) {
+        
+    }
+    
+    
+    @IBAction func onFavorite(sender: AnyObject) {
+    }
+    
+    
 }
+
+
