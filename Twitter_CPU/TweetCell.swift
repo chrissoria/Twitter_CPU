@@ -21,18 +21,48 @@ class TweetCell: UITableViewCell {
             userName.text = "\((tweet.user?.name)!)"
             tweeterHandle.text = "@" + "\((tweet.user?.screenname)!)"
             tweetContent.text = tweet.text
-            whenCreated.text = "\(tweet.createdAt)"
+            whenCreated.text = "\(tweet.createdAt!)"
+            whenCreated.text = calculateTimeStamp(tweet.createdAt!.timeIntervalSinceNow)
             
             let imageUrl = tweet.user?.profileImageUrl!
             profileImage.setImageWithURL(NSURL(string: imageUrl!)!)
         }
     
     }
+    func calculateTimeStamp(timeTweetPostedAgo: NSTimeInterval) -> String {
+        // Turn timeTweetPostedAgo into seconds, minutes, hours, days, or years
+        var rawTime = Int(timeTweetPostedAgo)
+        var timeAgo: Int = 0
+        var timeChar = ""
+        
+        rawTime = rawTime * (-1)
+        
+        if (rawTime <= 60) {
+            timeAgo = rawTime
+            timeChar = "s"
+        } else if ((rawTime/60) <= 60) {
+            timeAgo = rawTime/60
+            timeChar = "m"
+        } else if (rawTime/60/60 <= 24) {
+            timeAgo = rawTime/60/60
+            timeChar = "h"
+        } else if (rawTime/60/60/24 <= 365) {
+            timeAgo = rawTime/60/60/24
+            timeChar = "d"
+        } else if (rawTime/(3153600) <= 1) { 
+            timeAgo = rawTime/60/60/24/365
+            timeChar = "y"
+        }
+        
+        return "\(timeAgo)\(timeChar)"
+    }
 
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        profileImage.layer.cornerRadius = 3
+        profileImage.clipsToBounds = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
