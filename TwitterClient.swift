@@ -26,6 +26,19 @@ class TwitterClient: BDBOAuth1SessionManager {
             return Static.instance
         }
     
+    func homeTimelineWithParams(params: NSDictionary?, completion: ([Tweet]?, error: NSError?) -> ()) {
+        GET("1.1/statuses/home_timeline.json", parameters: params, success: { (operation: NSURLSessionDataTask, response:AnyObject) -> Void in
+            //print("home timeline: \(response)")
+            var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+            completion(tweets, error: nil)
+            
+        }, failure: { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("getting error for home timeline")
+            completion(nil, error: error)
+            
+        })
+    }
+    
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {
         loginCompletion = completion
         
@@ -59,20 +72,10 @@ class TwitterClient: BDBOAuth1SessionManager {
                 print("getting error for current user")
                 self.loginCompletion?(user: nil, error: error)
             })
-            TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (operation: NSURLSessionDataTask, response:AnyObject) -> Void in
-                //print("home timeline: \(response)")
-                let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
-                
-                for tweet in tweets {
-                    print("text: \(tweet.text), created: \(tweet.createdAt)")
-                }
-                
-                }, failure: { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
-                    print("getting error for home timeline")
-            })
-            }) { (error: NSError!) -> Void in
-                print("failed to get the access token")
-                self.loginCompletion?(user: nil, error: error)
+
+        }) { (error: NSError!) -> Void in
+            print("failed to get the access token")
+            self.loginCompletion?(user: nil, error: error)
         }
 
     }
