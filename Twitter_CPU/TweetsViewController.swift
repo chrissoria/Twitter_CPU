@@ -8,6 +8,9 @@
 
 import UIKit
 import BDBOAuth1Manager
+import AFNetworking
+
+        let refreshControl = UIRefreshControl()
 
 class TweetsViewController: UIViewController, UITableViewDataSource ,UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -17,6 +20,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource ,UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Initialize a UIRefreshControl
+
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
+    
 
         // Do any additional setup after loading the view.
         tableView.dataSource = self
@@ -59,6 +68,38 @@ class TweetsViewController: UIViewController, UITableViewDataSource ,UITableView
         cell.tweet = tweets![indexPath.row]
         
         return cell
+    }
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+
+        
+        let twitterConsumerKey = "Blfsv7a1evn8F0bAIcTKB5Hvu"
+        let twitterConsumerSecret = "Dhr0k74zfaRQsGWvtBNPNLGR487JWoRz5eBaWHbRsireftpVgr"
+        let twitterBaseURL = NSURL(string: "https://api.twitter.com")
+        let request = NSURLRequest(URL: twitterBaseURL!)
+        
+        // ... Create the NSURLRequest (myRequest) ...
+        
+        // Configure session so that completion handler is executed on main UI thread
+        let session = NSURLSession(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate:nil,
+            delegateQueue:NSOperationQueue.mainQueue()
+        )
+        
+        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
+            completionHandler: { (data, response, error) in
+                
+                // ... Use the new data to update the data source ...
+                
+                // Reload the tableView now that there is new data
+                self.tableView.reloadData()
+                
+                // Tell the refreshControl to stop spinning
+                refreshControl.endRefreshing()
+        });
+        task.resume()
+    
     }
 
 
