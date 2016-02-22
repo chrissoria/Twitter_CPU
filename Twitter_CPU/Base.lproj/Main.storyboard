@@ -156,7 +156,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="favoriteCountLabel" destination="Bkj-si-Rp4" id="60K-gv-wOB"/>
+                                            <outlet property="favoriteButton" destination="yBM-W2-293" id="rpF-ey-cfh"/>
+                                            <outlet property="favoriteCountLabel" destination="Bkj-si-Rp4" id="mc9-Qo-da2"/>
                                             <outlet property="profileImage" destination="Ke3-GG-cYy" id="NfF-bF-SfX"/>
                                             <outlet property="retweetButton" destination="sl7-Ub-LOh" id="KAh-cr-UM2"/>
                                             <outlet property="retweetCountLabel" destination="jdb-j8-H6A" id="3Re-PY-MKD"/>
