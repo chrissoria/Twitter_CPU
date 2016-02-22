@@ -11,6 +11,7 @@ import BDBOAuth1Manager
 import AFNetworking
 
         var refreshControl = UIRefreshControl()
+        var isMoreDataLoading = false
 
 class TweetsViewController: UIViewController, UITableViewDataSource ,UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -105,6 +106,51 @@ class TweetsViewController: UIViewController, UITableViewDataSource ,UITableView
         });
         task.resume()
     
+    }
+    
+    func loadMoreData() {
+        let twitterBaseURL = NSURL(string: "https://api.twitter.com")
+        let request = NSURLRequest(URL: twitterBaseURL!)
+
+        
+        // ... Create the NSURLRequest (myRequest) ...
+        
+        // Configure session so that completion handler is executed on main UI thread
+        let session = NSURLSession(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate:nil,
+            delegateQueue:NSOperationQueue.mainQueue()
+        )
+        
+        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
+            completionHandler: { (data, response, error) in
+                
+                // Update flag
+               
+                // ... Use the new data to update the data source ...
+                
+                // Reload the tableView now that there is new data
+                self.tableView.reloadData()
+        });
+        task.resume()
+    }
+
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            // Calculate the position of one screen length before the bottom of the results
+            let scrollViewContentHeight = tableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
+            
+            // When the user has scrolled past the threshold, start requesting
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.dragging) {
+                
+                isMoreDataLoading = true
+                
+                // Code to load more results
+                loadMoreData()
+            }
+        }
     }
 
 
