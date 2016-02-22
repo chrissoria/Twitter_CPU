@@ -10,7 +10,7 @@ import UIKit
 import BDBOAuth1Manager
 import AFNetworking
 
-        let refreshControl = UIRefreshControl()
+        var refreshControl = UIRefreshControl()
 
 class TweetsViewController: UIViewController, UITableViewDataSource ,UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -22,9 +22,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource ,UITableView
         super.viewDidLoad()
         
         // Initialize a UIRefreshControl
-
+        
+        refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
-        tableView.insertSubview(refreshControl, atIndex: 0)
+        tableView.addSubview(refreshControl)
+
     
 
         // Do any additional setup after loading the view.
@@ -37,7 +39,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource ,UITableView
         TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
-            
+
             
         }
     }
@@ -71,7 +73,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource ,UITableView
     }
     
     func refreshControlAction(refreshControl: UIRefreshControl) {
-
+        TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion:  { (tweets, error) -> () in
+        self.tweets = tweets
+        self.tableView.reloadData()
+})
         
         let twitterConsumerKey = "Blfsv7a1evn8F0bAIcTKB5Hvu"
         let twitterConsumerSecret = "Dhr0k74zfaRQsGWvtBNPNLGR487JWoRz5eBaWHbRsireftpVgr"
