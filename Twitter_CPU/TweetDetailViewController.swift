@@ -19,6 +19,7 @@ class TweetDetailViewController: UIViewController {
     @IBOutlet weak var tweetContent: UILabel!
     @IBOutlet weak var whenCreated: UILabel!
     @IBOutlet weak var replyField: UITextField!
+    @IBOutlet weak var profileButton: UIButton!
     
     
     @IBOutlet weak var retweetButton: UIButton!
@@ -31,9 +32,11 @@ class TweetDetailViewController: UIViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var tweetImage: UIImageView!
     
+    
     var tweetMessage: String = ""
     var tweet: Tweet!
     var tweetID: String = ""
+
     
 
     override func viewDidLoad() {
@@ -55,6 +58,18 @@ class TweetDetailViewController: UIViewController {
         
         retweetCountLabel.text! == "0" ? (retweetCountLabel.hidden = true) : (retweetCountLabel.hidden = false)
         favoriteCountLabel.text! == "0" ? (favoriteCountLabel.hidden = true) : (favoriteCountLabel.hidden = false)
+        
+        if tweet!.mediaURL != nil {
+            tweetImage.setImageWithURL(tweet!.mediaURL!)
+            tweetImage.sizeToFit()
+            print("Image loaded")
+            if tweet!.mediaURL == nil {
+                
+            }
+            print("no image load")
+        }
+        
+        //replyField.text = "@\(tweeterHandle!)"
         
         
         // Do any additional setup after loading the view.
@@ -103,14 +118,16 @@ class TweetDetailViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        print("profile segue")
     }
-    */
+    
 
 }

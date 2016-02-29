@@ -165,7 +165,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource ,UITableView
         tweetMessage = composeField.text!
         let escapedTweetMessage = tweetMessage.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
             TwitterClient.sharedInstance.tweeting(escapedTweetMessage!, params: nil , completion: { (error) -> () in
-                print("tweeting")
+                print("composing")
                 
         })
         
@@ -181,7 +181,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource ,UITableView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    
+    if segue.identifier == "detailsSegue" {
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPathForCell(cell)
         let tweet = tweets![indexPath!.row]
@@ -192,7 +192,17 @@ class TweetsViewController: UIViewController, UITableViewDataSource ,UITableView
 
         
     }
-
-
-
+        if segue.identifier == "profileSegue" {
+            
+            let button = sender as! UIButton
+            let view = button.superview!
+            let cell = view.superview as! TweetCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets![indexPath!.row]
+            
+            let profileViewController = segue.destinationViewController as! ProfileViewController
+            profileViewController.tweet = tweet
+        print("profileSegue")
+    }
+    }
 }
