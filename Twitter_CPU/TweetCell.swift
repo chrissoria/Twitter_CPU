@@ -36,13 +36,7 @@ class TweetCell: UITableViewCell {
             
             let imageUrl = tweet.user?.profileImageUrl!
             profileImage.setImageWithURL(NSURL(string: imageUrl!)!)
-            
-            //retweetCountLabel.text = String(tweet.retweetCount!)
-            //favoriteCountLabel.text = String(tweet.retweetCount!)
-            
-            //retweetCountLabel.text! == "0" ? (retweetCountLabel.hidden = true) : (retweetCountLabel.hidden = false)
-            
-            //favoriteCountLabel.text! == "0" ? (favoriteCountLabel.hidden = true) : (favoriteCountLabel.hidden = false)
+    
             
             tweetID = tweet.id
             retweetCountLabel.text = String(tweet.retweetCount!)

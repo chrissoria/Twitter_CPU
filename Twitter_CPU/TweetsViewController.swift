@@ -12,16 +12,19 @@ import AFNetworking
 
         var refreshControl = UIRefreshControl()
         var isMoreDataLoading = false
-
+        var tweetMessage: String = ""
 
 class TweetsViewController: UIViewController, UITableViewDataSource ,UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var composeField: UITextField!
     
     var tweets: [Tweet]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         // Initialize a UIRefreshControl
         
@@ -154,8 +157,21 @@ class TweetsViewController: UIViewController, UITableViewDataSource ,UITableView
         }
         
         
+        
+        
     }
 
+    @IBAction func onCompose(sender: AnyObject) {
+        tweetMessage = composeField.text!
+        let escapedTweetMessage = tweetMessage.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+            TwitterClient.sharedInstance.tweeting(escapedTweetMessage!, params: nil , completion: { (error) -> () in
+                print("tweeting")
+                
+        })
+        
+
+        
+    }
 
 
 
@@ -172,7 +188,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource ,UITableView
         let detailViewController = segue.destinationViewController as! TweetDetailViewController
         detailViewController.tweet = tweet
         
-        print("prepare for segue")
+        print("detailsSegue")
 
         
     }

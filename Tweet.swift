@@ -17,6 +17,8 @@ class Tweet: NSObject {
     var retweetCount: Int?
     var favoriteCount: Int?
     var id: String
+    var otherInfo: NSDictionary?
+    //var profileBackgroundURL: String
     
     init(dictionary: NSDictionary) {
         user = User(dictionary: dictionary["user"] as! NSDictionary)
@@ -24,12 +26,13 @@ class Tweet: NSObject {
         createdAtString = dictionary["created_at"] as? String
        
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
+        formatter.dateFormat = "EEE MMM d HH:mm:ss Z Y"
         createdAt = formatter.dateFromString(createdAtString!)
         
         id = String (dictionary["id"]!)
         retweetCount = dictionary["retweet_count"] as? Int
         favoriteCount = dictionary["favorite_count"] as? Int
+        //profileBackgroundURL = (otherInfo!["profile_banner_url"] as? String)!
         
     }
     
