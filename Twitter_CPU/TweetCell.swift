@@ -134,7 +134,5 @@ class TweetCell: UITableViewCell {
     }
     
 
-    
-
 
 }
