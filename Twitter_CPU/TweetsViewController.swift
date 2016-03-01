@@ -192,7 +192,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource ,UITableView
 
         
     }
-        if segue.identifier == "profileSegue" {
+        else if segue.identifier == "profileSegue" {
             
             let button = sender as! UIButton
             let view = button.superview!

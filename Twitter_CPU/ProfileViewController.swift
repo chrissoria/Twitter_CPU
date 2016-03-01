@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class ProfileViewController: UIViewController {
     
@@ -29,7 +30,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         let imageUrl = tweet.user?.profileImageUrl!
             profileImage.setImageWithURL(NSURL(string: imageUrl!)!)
-       // followerCountLabel.text = "\(user!.followersCount)"
+        //followerCountLabel.text = String(user!.followersCount!)
         //followingCountLabel.text = "\(user!.followingCount)"
         //tweetsCountLabel.text = String(user!.statusesCount)
         
