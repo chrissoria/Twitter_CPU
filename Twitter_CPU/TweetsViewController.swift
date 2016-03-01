@@ -202,6 +202,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource ,UITableView
             
             let profileViewController = segue.destinationViewController as! ProfileViewController
             profileViewController.tweet = tweet
+            let user = User.currentUser
         print("profileSegue")
     }
     }

@@ -20,6 +20,7 @@
 		5433F4731C71A6630047F117 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433F4721C71A6630047F117 /* TweetCell.swift */; };
 		54DBFB111C81802A00885560 /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DBFB101C81802A00885560 /* TweetDetailViewController.swift */; };
 		54DBFB141C83FCB600885560 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DBFB131C83FCB600885560 /* ProfileViewController.swift */; };
+		54DBFB161C8561CB00885560 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DBFB151C8561CB00885560 /* ComposeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		5433F4721C71A6630047F117 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		54DBFB101C81802A00885560 /* TweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailViewController.swift; sourceTree = "<group>"; };
 		54DBFB131C83FCB600885560 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		54DBFB151C8561CB00885560 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		E91C3CB26A44E8A29E807043 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				5433F4701C7071B40047F117 /* TweetsViewController.swift */,
+				54DBFB151C8561CB00885560 /* ComposeViewController.swift */,
 				54DBFB101C81802A00885560 /* TweetDetailViewController.swift */,
 				5433F4341C6AF36D0047F117 /* ViewController.swift */,
 				54DBFB131C83FCB600885560 /* ProfileViewController.swift */,
@@ -263,6 +266,7 @@
 				5433F46F1C70332F0047F117 /* Tweet.swift in Sources */,
 				5433F4711C7071B40047F117 /* TweetsViewController.swift in Sources */,
 				5433F46A1C6EDF1A0047F117 /* TwitterClient.swift in Sources */,
+				54DBFB161C8561CB00885560 /* ComposeViewController.swift in Sources */,
 				54DBFB111C81802A00885560 /* TweetDetailViewController.swift in Sources */,
 				54DBFB141C83FCB600885560 /* ProfileViewController.swift in Sources */,
 				5433F4351C6AF36D0047F117 /* ViewController.swift in Sources */,

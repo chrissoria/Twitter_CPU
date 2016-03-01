@@ -197,7 +197,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ihv-va-NBR">
-                                <rect key="frame" x="12" y="534" width="261" height="30"/>
+                                <rect key="frame" x="53" y="534" width="220" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -206,6 +206,13 @@
                                 <state key="normal" image="ic_send_48px-128"/>
                                 <connections>
                                     <action selector="onCompose:" destination="y4b-FJ-vie" eventType="touchUpInside" id="ndK-HB-ap5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbC-mz-4t7">
+                                <rect key="frame" x="7" y="529" width="38" height="35"/>
+                                <state key="normal" title="Button" image="common-new-edit-compose-glyph-128"/>
+                                <connections>
+                                    <segue destination="dER-uF-iUx" kind="modal" id="VtH-ba-W8P"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -233,10 +240,10 @@
             </objects>
             <point key="canvasLocation" x="3182" y="844"/>
         </scene>
-        <!--View Controller-->
+        <!--Compose View Controller-->
         <scene sceneID="Wo6-R6-M0K">
             <objects>
-                <viewController id="dER-uF-iUx" sceneMemberID="viewController">
+                <viewController id="dER-uF-iUx" customClass="ComposeViewController" customModule="Twitter_CPU" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Dq-Qy-JTH"/>
                         <viewControllerLayoutGuide type="bottom" id="gdN-Ty-jF5"/>
@@ -244,8 +251,39 @@
                     <view key="view" contentMode="scaleToFill" id="sMb-eN-HSL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4I6-Yi-bYz">
+                                <rect key="frame" x="20" y="62" width="280" height="242"/>
+                                <color key="backgroundColor" red="0.97684294871794874" green="0.97684294871794874" blue="0.97684294871794874" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxL-H9-ryS">
+                                <rect key="frame" x="123" y="345" width="75" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Tweet!"/>
+                                <connections>
+                                    <action selector="onCompose:" destination="dER-uF-iUx" eventType="touchUpInside" id="eW9-TI-222"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mZo-uh-jqi">
+                                <rect key="frame" x="0.0" y="9" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="R9d-Wi-xOS">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="0pw-1T-VdU">
+                                            <connections>
+                                                <segue destination="y4b-FJ-vie" kind="modal" id="D2Y-ib-xim"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="composeTextView" destination="4I6-Yi-bYz" id="R3p-Pl-EH7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnV-9e-XR8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -370,13 +408,13 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="userName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51M-C8-nqx">
-                                <rect key="frame" x="10" y="64" width="207" height="21"/>
+                                <rect key="frame" x="10" y="64" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tweeterHandle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIa-50-g9P">
-                                <rect key="frame" x="10" y="84" width="112" height="21"/>
+                                <rect key="frame" x="10" y="84" width="290" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -517,13 +555,14 @@
         <image name="Horiz-line" width="602" height="602"/>
         <image name="Twitter_logo_blue_32" width="32" height="32"/>
         <image name="Twitter_logo_blue_48" width="48" height="48"/>
+        <image name="common-new-edit-compose-glyph-128" width="128" height="128"/>
         <image name="ic_send_48px-128" width="128" height="128"/>
         <image name="like-action-off" width="54" height="72"/>
         <image name="reply-action_0" width="65" height="72"/>
         <image name="retweet-action_default" width="75" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LrY-43-KPb"/>
+        <segue reference="lW6-UA-wUZ"/>
         <segue reference="Ma2-GZ-5em"/>
     </inferredMetricsTieBreakers>
 </document>

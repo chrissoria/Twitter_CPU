@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController {
     var tweetMessage: String = ""
     var tweet: Tweet!
     var tweetID: String = ""
+    var user: User?
     
 
 
@@ -30,8 +31,14 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         let imageUrl = tweet.user?.profileImageUrl!
             profileImage.setImageWithURL(NSURL(string: imageUrl!)!)
-        //followerCountLabel.text = String(user!.followersCount!)
-        //followingCountLabel.text = "\(user!.followingCount)"
+        
+        followerCountLabel.text = String(user?.followersCount)
+        
+        followingCountLabel.text = String(user?.followingCount)
+        tweetsCountLabel.text = String(user?.statusesCount)
+        
+        //headerImage.setImageWithURL((user?.bannerImageUrl!)!)
+        
         //tweetsCountLabel.text = String(user!.statusesCount)
         
 
@@ -45,7 +52,7 @@ class ProfileViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -53,6 +60,6 @@ class ProfileViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
