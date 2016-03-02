@@ -21,6 +21,7 @@
 		54DBFB111C81802A00885560 /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DBFB101C81802A00885560 /* TweetDetailViewController.swift */; };
 		54DBFB141C83FCB600885560 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DBFB131C83FCB600885560 /* ProfileViewController.swift */; };
 		54DBFB161C8561CB00885560 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DBFB151C8561CB00885560 /* ComposeViewController.swift */; };
+		54DBFB381C86B1A500885560 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DBFB371C86B1A500885560 /* MeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		54DBFB101C81802A00885560 /* TweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailViewController.swift; sourceTree = "<group>"; };
 		54DBFB131C83FCB600885560 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		54DBFB151C8561CB00885560 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		54DBFB371C86B1A500885560 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		E91C3CB26A44E8A29E807043 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 				54DBFB101C81802A00885560 /* TweetDetailViewController.swift */,
 				5433F4341C6AF36D0047F117 /* ViewController.swift */,
 				54DBFB131C83FCB600885560 /* ProfileViewController.swift */,
+				54DBFB371C86B1A500885560 /* MeViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5433F46D1C7033100047F117 /* User.swift in Sources */,
+				54DBFB381C86B1A500885560 /* MeViewController.swift in Sources */,
 				5433F4731C71A6630047F117 /* TweetCell.swift in Sources */,
 				5433F46F1C70332F0047F117 /* Tweet.swift in Sources */,
 				5433F4711C7071B40047F117 /* TweetsViewController.swift in Sources */,

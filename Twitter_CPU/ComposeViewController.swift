@@ -11,9 +11,14 @@ import UIKit
 class ComposeViewController: UIViewController {
 
     @IBOutlet weak var composeTextView: UITextView!
+    @IBOutlet weak var countdownLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //getting a character limit to show how much characters you have left
+        countdownLabel.text = String(141 - composeTextView.text!.characters.count)
 
         // Do any additional setup after loading the view.
     }
@@ -32,6 +37,8 @@ class ComposeViewController: UIViewController {
             
         })
     }
+    
+    
 
     /*
     // MARK: - Navigation

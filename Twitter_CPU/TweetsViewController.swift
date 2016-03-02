@@ -199,11 +199,21 @@ class TweetsViewController: UIViewController, UITableViewDataSource ,UITableView
             let cell = view.superview as! TweetCell
             let indexPath = tableView.indexPathForCell(cell)
             let tweet = tweets![indexPath!.row]
-            
+            let user = tweet.user
             let profileViewController = segue.destinationViewController as! ProfileViewController
-            profileViewController.tweet = tweet
-            let user = User.currentUser
+            profileViewController.user = user
+            
         print("profileSegue")
+    }
+    
+    else if segue.identifier == "meSegue" {
+        
+    let user = User.currentUser
+    let button = sender as! UIButton
+    let view = button.superview!
+    let meViewController = segue.destinationViewController as! MeViewController
+    
+    print("meSegue")
     }
     }
 }
